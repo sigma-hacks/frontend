@@ -8,10 +8,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
-import { GlobalStyles } from './shared/ui/templates/global-styles'
+import styles from './tailwind.css'
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
+  { rel: 'stylesheet', href: styles },
 ]
 
 const App = () => {
@@ -28,14 +29,13 @@ const App = () => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
         <Links />
       </head>
-      <body>
+      <body className="font-inter">
         <Outlet />
-        <GlobalStyles />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
