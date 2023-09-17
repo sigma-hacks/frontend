@@ -13,7 +13,7 @@ export const meta: V2_MetaFunction = () => [
   { title: 'Партнёрская программа | Кабинет партнера ЕКЖ Мурманской Области' },
 ]
 
-const BePartnerPage = () => {
+const PartnersProgramPage = () => {
   return (
     <>
       <ContentSection>
@@ -223,4 +223,4 @@ const BePartnerPage = () => {
   )
 }
 
-export default BePartnerPage
+export default PartnersProgramPage

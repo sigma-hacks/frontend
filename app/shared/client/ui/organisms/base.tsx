@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react'
 
 const partnerLinks = [
   { title: 'О кабинете', link: '/' },
-  { title: 'Стать партнером', link: '/be-partner' },
+  { title: 'Стать партнером', link: '/partners-program' },
   { title: 'Партнеры', link: '/' },
   { title: 'Частые вопросы', link: '/' },
   { title: 'Контакты', link: '/' },

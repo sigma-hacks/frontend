@@ -88,7 +88,7 @@ const IndexPage = () => {
           Управление льготами, бонусами и услугами
         </p>
 
-        <Link to="/be-partner">
+        <Link to="/partners-program">
           <Button variant="outlined">Стать партнером</Button>
         </Link>
       </ContentSection>
