@@ -8,6 +8,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import { PartnersMobileAppPromotion } from './entities/partner'
+import { Footer, Header } from './shared/client/ui'
 import styles from './tailwind.css'
 
 export const links: LinksFunction = () => [
@@ -37,7 +39,13 @@ const App = () => {
         <link rel="icon" href="/logo.png" type="image/png" />
       </head>
       <body className="font-inter">
-        <Outlet />
+        <Header />
+        <main className="bg-secondary-main pt-32 space-y-32">
+          <Outlet />
+          <PartnersMobileAppPromotion />
+        </main>
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

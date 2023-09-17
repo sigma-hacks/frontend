@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { PropsWithChildren } from 'react'
-import { ChevronLeft, ChevronRight } from '~/shared/client/ui/icons/chevron'
+import { ChevronLeft, ChevronRight } from '~/shared/client/ui'
 
 export const PartnersCarousel = ({ children }: PropsWithChildren) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
