@@ -33,6 +33,8 @@ const App = () => {
           rel="stylesheet"
         />
         <Links />
+
+        <link rel="icon" href="/logo.png" type="image/png" />
       </head>
       <body className="font-inter">
         <Outlet />

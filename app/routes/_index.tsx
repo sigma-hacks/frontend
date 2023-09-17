@@ -1,4 +1,4 @@
-import { json } from '@remix-run/node'
+import { V2_MetaFunction, json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { PartnerSlide, PartnersCarousel } from '~/entities/partner/ui/carousel'
 import { dmYFormat } from '~/shared/client/lib/date'
@@ -58,6 +58,10 @@ export const loader = async () => {
     news,
   })
 }
+
+export const meta: V2_MetaFunction = () => [
+  { title: 'Кабинет партнера ЕКЖ Мурманской Области' },
+]
 
 const IndexPage = () => {
   const { partners, news } = useLoaderData<typeof loader>()
