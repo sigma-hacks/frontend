@@ -27,3 +27,18 @@ export const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 )
+
+export const CheckWithoutCircleIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={16}
+    height={16}
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="#4687AE"
+      d="M15.143 2.25h-1.248a.569.569 0 0 0-.449.218l-7.362 9.327-3.53-4.474a.571.571 0 0 0-.449-.217H.857a.142.142 0 0 0-.112.23l4.89 6.196c.23.29.668.29.899 0L15.255 2.48a.141.141 0 0 0-.112-.229Z"
+    />
+  </svg>
+)

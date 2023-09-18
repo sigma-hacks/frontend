@@ -1,10 +1,8 @@
 import { V2_MetaFunction } from '@remix-run/node'
-import { Link } from '@remix-run/react'
+import { ContactsCardsList } from '~/entities/contact'
 import { PartnersProgramAdvantages } from '~/entities/partner'
 import {
   ContentSection,
-  EmailIcon,
-  PhoneIcon,
   SectionSubTitle,
   SectionTitle,
 } from '~/shared/client/ui'
@@ -169,55 +167,7 @@ const PartnersProgramPage = () => {
           </SectionSubTitle>
         </div>
 
-        <ul className="grid grid-cols-3 gap-5">
-          {[
-            {
-              name: 'Артищев Вадим Витальевич',
-              pos: 'начальник отдела',
-              phone: '8 815 248 64 12',
-              email: 'artishchev@gov-murman.ru',
-            },
-            {
-              name: 'Терещенко Даниил Олегович',
-              pos: 'главный специалист',
-              phone: '8 815 248 65 13',
-              email: 'tereschenko@gov-murman.ru',
-            },
-            {
-              name: 'Лобазова Юлия Евгеньевна',
-              pos: 'оператор ЕКЖ Мурманской области',
-              phone: '8 921 161 97 65',
-              email: 'info@karta51.ru',
-            },
-          ].map(({ name, pos, phone, email }) => (
-            <li key={name} className="p-8 rounded-xl space-y-4 bg-accent-main">
-              <div>
-                <p className="font-medium">{name}</p>
-                <p className="text-muted-dark text-sm">{pos}</p>
-              </div>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    to={`tel:${phone}`}
-                    className="inline-flex items-center gap-2 text-[#0070B3] hover:underline"
-                  >
-                    <PhoneIcon />
-                    {phone}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={`mailto:${email}`}
-                    className="inline-flex items-center gap-2 text-[#0070B3] hover:underline"
-                  >
-                    <EmailIcon />
-                    {email}
-                  </Link>
-                </li>
-              </ul>
-            </li>
-          ))}
-        </ul>
+        <ContactsCardsList />
       </ContentSection>
     </>
   )

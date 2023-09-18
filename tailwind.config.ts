@@ -14,6 +14,7 @@ export default {
       },
       textColor: {
         'primary-main': '#137FA0',
+        'primary-light': '#3e9db9',
         'secondary-main': 'rgb(17, 200, 178)',
         'secondary-dark': 'rgba(40, 174, 134, 0.87)',
         'muted-main': '#909090',

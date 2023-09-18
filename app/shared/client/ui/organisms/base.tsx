@@ -1,38 +1,5 @@
 import { Link } from '@remix-run/react'
-
-const partnerLinks = [
-  { title: 'О кабинете', link: '/' },
-  { title: 'Стать партнером', link: '/partners-program' },
-  { title: 'Партнеры', link: '/' },
-  { title: 'Частые вопросы', link: '/' },
-  { title: 'Контакты', link: '/' },
-]
-
-const infoLinks = [
-  { title: 'Новости', link: '/' },
-  { title: 'Документы', link: '/' },
-  { title: 'Об операторе', link: '/' },
-  { title: 'Единая Карта Жителя', link: '/' },
-  { title: 'Приложение для клиента', link: '/' },
-]
-
-const suppLinks = [
-  {
-    logo: '/supports/1.png',
-    title: 'Правительство Мурманской области',
-    link: '/',
-  },
-  {
-    logo: '/supports/2.png',
-    title: 'Наш Север',
-    link: '/',
-  },
-  {
-    logo: '/supports/3.png',
-    title: 'Карта51',
-    link: '/',
-  },
-]
+import { infoLinks, mainLinks } from '../../config/url'
 
 export const Header = () => {
   return (
@@ -54,7 +21,7 @@ export const Header = () => {
         </div>
 
         <ul className="flex items-center justify-center gap-8 col-span-3">
-          {partnerLinks.map(({ title, link }) => (
+          {Object.values(mainLinks).map(({ title, link }) => (
             <li key={title}>
               <Link
                 to={link}
@@ -92,7 +59,7 @@ export const Footer = () => {
         <div>
           <p className="text-secondary-dark font-bold mb-4">Партнерам</p>
           <ul className="space-y-2">
-            {partnerLinks.map(({ title, link }) => (
+            {Object.values(mainLinks).map(({ title, link }) => (
               <li key={title}>
                 <Link to={link} className="hover:underline">
                   {title}
@@ -104,7 +71,7 @@ export const Footer = () => {
         <div>
           <p className="text-secondary-dark font-bold mb-4">Информация</p>
           <ul className="space-y-2">
-            {infoLinks.map(({ title, link }) => (
+            {Object.values(infoLinks).map(({ title, link }) => (
               <li key={title}>
                 <Link to={link} className="hover:underline">
                   {title}
@@ -130,7 +97,23 @@ export const Footer = () => {
 
       <div className="flex items-center justify-between">
         <ul className="flex items-center gap-8">
-          {suppLinks.map(({ logo, title, link }) => (
+          {[
+            {
+              logo: '/supports/1.png',
+              title: 'Правительство Мурманской области',
+              link: '/',
+            },
+            {
+              logo: '/supports/2.png',
+              title: 'Наш Север',
+              link: '/',
+            },
+            {
+              logo: '/supports/3.png',
+              title: 'Карта51',
+              link: '/',
+            },
+          ].map(({ logo, title, link }) => (
             <li key={title}>
               <Link to={link}>
                 <img src={logo} alt={title} className="w-[120px]" />

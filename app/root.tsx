@@ -1,15 +1,21 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
-import type { LinksFunction } from '@remix-run/node'
+import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  isRouteErrorResponse,
+  useRouteError,
 } from '@remix-run/react'
+import { PropsWithChildren } from 'react'
 import { PartnersMobileAppPromotion } from './entities/partner'
-import { Footer, Header } from './shared/client/ui'
+import { errorStatusMessage } from './shared/client/config/error-status'
+import { mainLinks } from './shared/client/config/url'
+import { Button, ContentSection, Footer, Header } from './shared/client/ui'
 import styles from './tailwind.css'
 
 export const links: LinksFunction = () => [
@@ -17,7 +23,11 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
 ]
 
-const App = () => {
+export const meta: V2_MetaFunction = () => [
+  { title: 'Кабинет партнера ЕКЖ Мурманской Области' },
+]
+
+const Document = ({ children }: PropsWithChildren) => {
   return (
     <html lang="ru">
       <head>
@@ -41,7 +51,7 @@ const App = () => {
       <body className="font-inter">
         <Header />
         <main className="bg-secondary-main pt-32 space-y-32">
-          <Outlet />
+          {children}
           <PartnersMobileAppPromotion />
         </main>
         <Footer />
@@ -51,6 +61,34 @@ const App = () => {
         <LiveReload />
       </body>
     </html>
+  )
+}
+
+const App = () => (
+  <Document>
+    <Outlet />
+  </Document>
+)
+
+export const ErrorBoundary = () => {
+  const error = useRouteError()
+
+  const message =
+    (isRouteErrorResponse(error) && errorStatusMessage[error.status]) ||
+    errorStatusMessage[500]
+
+  return (
+    <Document>
+      <ContentSection>
+        <div className="space-y-4">
+          <p className="text-2xl font-bold">{message.title}</p>
+          <p>{message.details}</p>
+        </div>
+        <Link to={mainLinks.home.link} className="block">
+          <Button variant="default">На главную</Button>
+        </Link>
+      </ContentSection>
+    </Document>
   )
 }
 

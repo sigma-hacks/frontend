@@ -5,6 +5,7 @@ import {
   PartnersCarousel,
   PartnersProgramAdvantages,
 } from '~/entities/partner'
+import { infoLinks, mainLinks, subLinks } from '~/shared/client/config/url'
 import { dmYFormat } from '~/shared/client/lib/date'
 import {
   Button,
@@ -37,7 +38,7 @@ export const loader = async () => {
 
   const news = [
     {
-      slug: '/',
+      slug: 'test',
       banner: '/news/1.png',
       title: 'Новый партнер «Снежная Деревня»',
       details:
@@ -45,7 +46,7 @@ export const loader = async () => {
       createdAt: new Date(),
     },
     {
-      slug: '/',
+      slug: 'test',
       banner: '/news/2.png',
       title: 'Новый партнер «ТУНДРА ПАРК»',
       details:
@@ -53,7 +54,7 @@ export const loader = async () => {
       createdAt: new Date(),
     },
     {
-      slug: '/',
+      slug: 'test',
       banner: '/news/3.png',
       title: 'Новый партнер проекта Кафе «ЭДЕЛЬВЕЙС»',
       details:
@@ -88,7 +89,7 @@ const IndexPage = () => {
           Управление льготами, бонусами и услугами
         </p>
 
-        <Link to="/partners-program">
+        <Link to={mainLinks.partnersProgram.link}>
           <Button variant="outlined">Стать партнером</Button>
         </Link>
       </ContentSection>
@@ -174,8 +175,12 @@ const IndexPage = () => {
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <Button variant="outlined">Все партнеры</Button>
-            <Button variant="default">Стать партнером</Button>
+            <Link to={mainLinks.partnersList.link}>
+              <Button variant="outlined">Все партнеры</Button>
+            </Link>
+            <Link to={mainLinks.partnersProgram.link}>
+              <Button variant="default">Стать партнером</Button>
+            </Link>
           </div>
         </div>
       </ContentSection>
@@ -185,6 +190,7 @@ const IndexPage = () => {
           <SectionTitle>
             Получить доступ к{' '}
             <span className="rainbow-text font-bold">кабинету Партнера</span>{' '}
+            <br />
             можно уже сейчас
           </SectionTitle>
           <SectionSubTitle>
@@ -238,7 +244,9 @@ const IndexPage = () => {
         </div>
 
         <div className="flex justify-center">
-          <Button variant="rainbow">Больше вопросов</Button>
+          <Link to={mainLinks.questions.link}>
+            <Button variant="rainbow">Больше вопросов</Button>
+          </Link>
         </div>
       </ContentSection>
 
@@ -248,7 +256,9 @@ const IndexPage = () => {
             <span className="rainbow-text font-bold">Новости</span> для
             партнеров
           </SectionTitle>
-          <Button variant="ghost">Все новости {'>'}</Button>
+          <Link to={infoLinks.news.link}>
+            <Button variant="ghost">Все новости {'>'}</Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
@@ -266,7 +276,7 @@ const IndexPage = () => {
                     {dmYFormat(createdAt)}
                   </span>
                   <Link
-                    to={`/news/${slug}`}
+                    to={subLinks.newsItem.link(slug)}
                     className="text-primary-main underline"
                   >
                     Подробнее
