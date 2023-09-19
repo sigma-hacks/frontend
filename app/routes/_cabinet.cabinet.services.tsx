@@ -5,13 +5,9 @@ import { serviceApi } from '~/shared/client/api'
 import { ContentSection, SearchForm } from '~/shared/client/ui'
 
 const CabinetServicesPage = () => {
-  const {
-    data: services,
-    isLoading,
-    isError,
-  } = useQuery(['services'], () => serviceApi.getServices())
-
-  console.log({ services })
+  const { data: services } = useQuery(['services'], () =>
+    serviceApi.getServices()
+  )
 
   return (
     <>
