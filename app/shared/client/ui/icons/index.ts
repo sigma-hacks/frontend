@@ -1,4 +1,5 @@
 export * from './check'
-export * from './contact'
 export * from './chevron'
+export * from './contact'
+export * from './controls'
 export * from './search'

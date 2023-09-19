@@ -1,56 +1,57 @@
 import { Link } from '@remix-run/react'
-import { infoLinks, mainLinks } from '../../config/url'
+import { routes } from '../../config'
 
-export const Header = () => {
-  return (
-    <header className="sticky top-0 bg-white shadow px-4 py-2 z-20">
-      <div className="max-w-screen-2xl w-full px-4 m-auto grid grid-cols-5">
-        <div className="w-full">
-          <Link to="/" className="flex items-center gap-4">
-            <img src="/logo.png" alt="" width={38} height={50} />
-            <div className="flex-col">
-              <p className="text-sm text-primary-main font-bold">
-                Единая Карта Жителя
-              </p>
-              <p className="text-sm text-primary-main">Мурманской Области</p>
-              <p className="text-sm text-secondary-dark font-bold">
-                Кабинет Партнера
-              </p>
-            </div>
-          </Link>
-        </div>
+const mainLinks = [
+  {
+    title: 'О кабинете',
+    link: routes.HOME,
+  },
+  {
+    title: 'Стать партнером',
+    link: routes.PARTNERS_PROGRAM,
+  },
+  {
+    title: 'Партнеры',
+    link: routes.PARTNERS_LIST,
+  },
+  {
+    title: 'Частые вопросы',
+    link: routes.QUESTIONS,
+  },
+  {
+    title: 'Контакты',
+    link: routes.CONTACTS,
+  },
+]
 
-        <ul className="flex items-center justify-center gap-8 col-span-3">
-          {Object.values(mainLinks).map(({ title, link }) => (
-            <li key={title}>
-              <Link
-                to={link}
-                className="hover:text-primary-main transition-colors duration-200"
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+const infoLinks = [
+  {
+    title: 'Новости',
+    link: routes.NEWS,
+  },
+  {
+    title: 'Документы',
+    link: routes.DOCS,
+  },
+  {
+    title: 'Об операторе',
+    link: routes.ABOUT_OPERATOR,
+  },
+  {
+    title: 'Единая Карта Жителя',
+    link: routes.CARD,
+  },
+  {
+    title: 'Приложение для клиента',
+    link: routes.CLIENT_APP,
+  },
+]
 
-        <div className="flex items-center justify-end w-full">
-          <Link
-            to="/"
-            className="hover:text-primary-main transition-colors duration-200"
-          >
-            Личный кабинет
-          </Link>
-        </div>
-      </div>
-    </header>
-  )
-}
-
-export const Footer = () => {
-  return (
-    <footer className="relative bg-white shadow-2xl z-10 p-8 space-y-8">
+export const Footer = () => (
+  <footer className="relative bg-white shadow-2xl z-10 p-8">
+    <div className="max-w-screen-xl w-full px-4 m-auto space-y-8">
       <img
-        src="/logo-full.png"
+        src="/assets/img/logo-full.png"
         alt="Единая карта жителя Мурманской области"
         className="w-[200px]"
       />
@@ -59,7 +60,7 @@ export const Footer = () => {
         <div>
           <p className="text-secondary-dark font-bold mb-4">Партнерам</p>
           <ul className="space-y-2">
-            {Object.values(mainLinks).map(({ title, link }) => (
+            {mainLinks.map(({ title, link }) => (
               <li key={title}>
                 <Link to={link} className="hover:underline">
                   {title}
@@ -71,7 +72,7 @@ export const Footer = () => {
         <div>
           <p className="text-secondary-dark font-bold mb-4">Информация</p>
           <ul className="space-y-2">
-            {Object.values(infoLinks).map(({ title, link }) => (
+            {infoLinks.map(({ title, link }) => (
               <li key={title}>
                 <Link to={link} className="hover:underline">
                   {title}
@@ -99,17 +100,17 @@ export const Footer = () => {
         <ul className="flex items-center gap-8">
           {[
             {
-              logo: '/supports/1.png',
+              logo: '/assets/img/supports/1.png',
               title: 'Правительство Мурманской области',
               link: '/',
             },
             {
-              logo: '/supports/2.png',
+              logo: '/assets/img/supports/2.png',
               title: 'Наш Север',
               link: '/',
             },
             {
-              logo: '/supports/3.png',
+              logo: '/assets/img/supports/3.png',
               title: 'Карта51',
               link: '/',
             },
@@ -127,6 +128,6 @@ export const Footer = () => {
           <span className="text-primary-main font-bold">#НаСевереКодить</span>
         </p>
       </div>
-    </footer>
-  )
-}
+    </div>
+  </footer>
+)

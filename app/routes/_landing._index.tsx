@@ -5,7 +5,7 @@ import {
   PartnersCarousel,
   PartnersProgramAdvantages,
 } from '~/entities/partner'
-import { infoLinks, mainLinks, subLinks } from '~/shared/client/config/url'
+import { routes } from '~/shared/client/config'
 import { dmYFormat } from '~/shared/client/lib/date'
 import {
   Button,
@@ -17,19 +17,19 @@ import {
 export const loader = async () => {
   const partners = [
     {
-      logo: '/partner/partner-1.png',
+      logo: '/assets/img/partner/partner-1.png',
       name: 'Деловые линии',
       serviceCount: 5,
       link: '/',
     },
     {
-      logo: '/partner/partner-2.png',
+      logo: '/assets/img/partner/partner-2.png',
       name: 'Мурманская городская универсальная научная библиотека',
       serviceCount: 5,
       link: '/',
     },
     {
-      logo: '/partner/partner-3.png',
+      logo: '/assets/img/partner/partner-3.png',
       name: 'Снежная деревня',
       serviceCount: 5,
       link: '/',
@@ -39,7 +39,7 @@ export const loader = async () => {
   const news = [
     {
       slug: 'test',
-      banner: '/news/1.png',
+      banner: '/assets/img/news/1.png',
       title: 'Новый партнер «Снежная Деревня»',
       details:
         'Теперь можно полюбоваться красотами Снежной Деревни используя ЕКЖ Мурманской Области Области Области',
@@ -47,7 +47,7 @@ export const loader = async () => {
     },
     {
       slug: 'test',
-      banner: '/news/2.png',
+      banner: '/assets/img/news/2.png',
       title: 'Новый партнер «ТУНДРА ПАРК»',
       details:
         'Теперь можно полюбоваться красотами Снежной Деревни используя ЕКЖ Мурманской Области Области Области',
@@ -55,7 +55,7 @@ export const loader = async () => {
     },
     {
       slug: 'test',
-      banner: '/news/3.png',
+      banner: '/assets/img/news/3.png',
       title: 'Новый партнер проекта Кафе «ЭДЕЛЬВЕЙС»',
       details:
         'Теперь можно полюбоваться красотами Снежной Деревни используя ЕКЖ Мурманской Области Области Области',
@@ -89,7 +89,7 @@ const IndexPage = () => {
           Управление льготами, бонусами и услугами
         </p>
 
-        <Link to={mainLinks.partnersProgram.link}>
+        <Link to={routes.PARTNERS_PROGRAM}>
           <Button variant="outlined">Стать партнером</Button>
         </Link>
       </ContentSection>
@@ -112,19 +112,19 @@ const IndexPage = () => {
         <ul className="grid grid-cols-3 gap-4">
           {[
             {
-              icon: '/partner/icon-1.png',
+              icon: '/assets/img/partner/icon-1.png',
               title: 'Кто может стать Партнером?',
               details:
                 'Индивидуальные предприниматели и иные Юридические лица, а также Государственные организации оказывающие платные услуги',
             },
             {
-              icon: '/partner/icon-2.png',
+              icon: '/assets/img/partner/icon-2.png',
               title: 'Какие нужны документы?',
               details:
                 'Заявление о присоединении к сервису Карточку подключаемого предприятия',
             },
             {
-              icon: '/partner/icon-3.png',
+              icon: '/assets/img/partner/icon-3.png',
               title: 'Сколько потребуется времени?',
               details:
                 'Чаще всего подключение к проекту занимает от одного до трех месяцев.',
@@ -175,11 +175,11 @@ const IndexPage = () => {
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <Link to={mainLinks.partnersList.link}>
+            <Link to={routes.PARTNERS_LIST}>
               <Button variant="outlined">Все партнеры</Button>
             </Link>
-            <Link to={mainLinks.partnersProgram.link}>
-              <Button variant="default">Стать партнером</Button>
+            <Link to={routes.PARTNERS_PROGRAM}>
+              <Button>Стать партнером</Button>
             </Link>
           </div>
         </div>
@@ -244,7 +244,7 @@ const IndexPage = () => {
         </div>
 
         <div className="flex justify-center">
-          <Link to={mainLinks.questions.link}>
+          <Link to={routes.QUESTIONS}>
             <Button variant="rainbow">Больше вопросов</Button>
           </Link>
         </div>
@@ -256,7 +256,7 @@ const IndexPage = () => {
             <span className="rainbow-text font-bold">Новости</span> для
             партнеров
           </SectionTitle>
-          <Link to={infoLinks.news.link}>
+          <Link to={routes.NEWS}>
             <Button variant="ghost">Все новости {'>'}</Button>
           </Link>
         </div>
@@ -276,7 +276,7 @@ const IndexPage = () => {
                     {dmYFormat(createdAt)}
                   </span>
                   <Link
-                    to={subLinks.newsItem.link(slug)}
+                    to={routes.NEWS_ITEM(slug)}
                     className="text-primary-main underline"
                   >
                     Подробнее

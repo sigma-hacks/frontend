@@ -9,3 +9,14 @@ export const dmYFormat = (date: string | Date) => {
 
   return `${day}.${month}.${date.getFullYear()}`
 }
+
+export const hiFormat = (date: string | Date) => {
+  if (!(date instanceof Date)) {
+    date = new Date(date)
+  }
+
+  const hours = `0${date.getHours()}`.slice(-2)
+  const minutes = `0${date.getMinutes()}`.slice(-2)
+
+  return `${hours}:${minutes}`
+}

@@ -12,7 +12,7 @@ export const PartnersMobileAppPromotion = () => {
       </div>
 
       <div className="w-full flex justify-center">
-        <img src="/mobile-app-preview.png" alt="" className="w-[400px]" />
+        <img src="/assets/img/mobile-app-preview.png" alt="" className="w-[400px]" />
       </div>
     </ContentSection>
   )

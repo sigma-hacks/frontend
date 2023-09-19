@@ -28,6 +28,10 @@ export default {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
+      backgroundImage: {
+        'auth-gradient':
+          'linear-gradient(78deg, #67EDC5 6.92%, #5EE283 27.43%, #819FD8 51.16%, #B53CE0 71.96%, #4687AE 93.18%)',
+      },
     },
   },
   plugins: [],

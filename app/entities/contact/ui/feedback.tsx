@@ -9,7 +9,7 @@ export const FeedbackForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-16 max-w-screen-sm w-full m-auto"
+      className="space-y-8 max-w-screen-sm w-full m-auto"
     >
       <div className="space-y-2">
         <p className="text-2xl font-bold text-center">Обратная связь</p>
@@ -18,7 +18,7 @@ export const FeedbackForm = () => {
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-4">
         <TextField
           label="Тема обращения *"
           placeholder="Выберите тему обращения"
@@ -34,14 +34,16 @@ export const FeedbackForm = () => {
         />
       </div>
 
-      <div className="space-y-2">
-        <p className="text-2xl font-bold text-center">Куда направить ответ?</p>
-        <p className="text-muted-main text-center">
-          Если ответ не требуется, оставьте поля пустыми
-        </p>
-      </div>
+      <div className="space-y-8 bg-white shadow-sm p-4 rounded-xl">
+        <div className="space-y-2">
+          <p className="text-2xl font-bold text-center">
+            Куда направить ответ?
+          </p>
+          <p className="text-muted-main text-center">
+            Если ответ не требуется, оставьте поля пустыми
+          </p>
+        </div>
 
-      <div className="space-y-8">
         <div className="flex gap-4">
           <TextField label="Контактный номер" fullWidth />
           <TextField
@@ -50,14 +52,12 @@ export const FeedbackForm = () => {
             fullWidth
           />
         </div>
+      </div>
 
-        <CheckboxField label="Я принимаю соглашение об использовании персональных данных" />
+      <CheckboxField label="Я принимаю соглашение об использовании персональных данных" />
 
-        <div className="flex justify-center">
-          <Button variant="default" type="submit">
-            Отправить
-          </Button>
-        </div>
+      <div className="flex justify-center">
+        <Button type="submit">Отправить</Button>
       </div>
     </form>
   )
